@@ -8,4 +8,6 @@ w testach sprawdzic metode
  def setUp(self):
     self.Konto = Konto(self.imie, self.nazwisko, self.pesel)
 
+@parameterized.expand([])
+
 """
