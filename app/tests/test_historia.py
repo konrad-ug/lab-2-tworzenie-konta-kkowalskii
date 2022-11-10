@@ -1,5 +1,4 @@
 import unittest
-
 from  ..Konto import Konto
 
 class TestCreateBankAccount(unittest.TestCase):
