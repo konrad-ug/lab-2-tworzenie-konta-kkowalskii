@@ -104,21 +104,6 @@ class TestCreateBankAccount(unittest.TestCase):
         self.assertEqual(konto_z_50pln_z_kodu.historia_przelewow[1], -20, "historia przelewów nie zapisuje się prawidłowo")
         self.assertEqual(konto_z_50pln_z_kodu.saldo, -1, "Przelew odjął pieniądze z konta mimo niewystarczających środków")
 
-
-
-
-
-
-""""
-        elif odbiorca.NIP != str(NIP):
-            print("nieudana proba wykonania przelewu, powód: podany NIP był nieprawidłowy")
-        elif not isinstance(odbiorca, KontoFirmowe):
-            print("nieudana proba wykonania przelewu, powód: podane konto nie istnieje")
-        else:
-            print("nieudana proba wykonania przelewu, powód: nieznany")
-
-
-"""
 class TestCreateBankAccountCompany(unittest.TestCase):
 
 
@@ -162,15 +147,7 @@ class TestCreateBankAccountCompany(unittest.TestCase):
                          "Saldo nadawcy zostało zmienione mimo niewystarczających środków do wykonania przelwu")
         self.assertEqual(firmowe.saldo, 2000,
                          "Saldo odbiorcy zostało zmienione mimo niewystarczających środków nadawcy")
-    def test_NIP(self):
 
-        za_krotki_NIP = KontoFirmowe("wiesbud", "044")
-        za_dlugi_NIP = KontoFirmowe("wiesbud", "11223344556677")
-        niepoprawny_NIP = KontoFirmowe("wiesbud", "01nieNIP05")
-
-        self.assertEqual(za_krotki_NIP.NIP, "Niepoprawny NIP!", testmsg)
-        self.assertEqual(za_dlugi_NIP.NIP, "Niepoprawny NIP!", testmsg)
-        self.assertEqual(niepoprawny_NIP.NIP, "Niepoprawny NIP!", testmsg)
 
         
         
