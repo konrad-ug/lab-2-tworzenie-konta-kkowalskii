@@ -13,20 +13,20 @@ class Test_Przelewy(unittest.TestCase):
         fakeKonto['historia_przelewow'] = []
 
         # proba przelewu na zly obiekt
-        konto_z_50pln_z_kodu.przelew_wychodzacy(fakeKonto, 60101866617, 30)
+        konto_z_50pln_z_kodu.przelew_wychodzacy(fakeKonto, 30)
         self.assertEqual(konto_z_50pln_z_kodu.saldo, 50, "Przelew przeszedł mimo obiektu nienalezacego do klasy Konto")
 
         # przelew wychodzący o kwocie 30 pln
-        konto_z_50pln_z_kodu.przelew_wychodzacy(konto_puste, 60101866617, 30)
+        konto_z_50pln_z_kodu.przelew_wychodzacy(konto_puste, 30)
 
         self.assertEqual(konto_puste.saldo, 30, "Przelew nie dodał pieniędzy na konto docelowe")
         self.assertEqual(konto_z_50pln_z_kodu.saldo, 20, "Przelew nie odjął pieniędzy nadawcy przelewu")
 
         # przelew wychodzący (ekspresowy) o kwocie 10 pln
-        konto_z_50pln_z_kodu.przelew_wychodzacy(konto_puste, 60101866617, 20, True)
+        konto_z_50pln_z_kodu.przelew_wychodzacy(konto_puste, 20, True)
         self.assertEqual(konto_z_50pln_z_kodu.saldo, -1, "Przelew odjął niepoprawną wartość")
 
-        konto_z_50pln_z_kodu.przelew_wychodzacy(konto_puste, 60101866617, 30)
+        konto_z_50pln_z_kodu.przelew_wychodzacy(konto_puste, 30)
 
         self.assertEqual(konto_z_50pln_z_kodu.historia_przelewow[1], -20,"historia przelewów nie zapisuje się prawidłowo")
         self.assertEqual(konto_z_50pln_z_kodu.saldo, -1, "Przelew odjął pieniądze z konta mimo niewystarczających środków")
