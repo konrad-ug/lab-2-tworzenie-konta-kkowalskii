@@ -6,7 +6,6 @@ def between_two_numbers(min, max, number):
     else:
         return False
 
-
 class Konto:
     def __init__(self, imie, nazwisko, pesel, kod_rabatowy=None):
         self.imie = imie
@@ -32,10 +31,7 @@ class Konto:
                 if between_two_numbers(13, 80, int(self.pesel[2:4])) or (int(self.pesel[0:2]) >= 61 and between_two_numbers(1, 12, int(self.pesel[2:4]))):
                     self.saldo = 50
 
-
-
                     #print('z kodu rabatowego mogą korzystać tylko osoby urodzone po 1960 roku!')
-
 
     def przelew_wychodzacy(self, odbiorca, kwota, ekspresowy: bool = False):
 
@@ -89,7 +85,3 @@ class KontoFirmowe:
             else: return
         else:
             return
-
-
-
-
