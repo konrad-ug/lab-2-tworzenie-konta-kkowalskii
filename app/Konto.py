@@ -52,12 +52,12 @@ class Konto:
 
         else:
             return
-    # def zaciagnij_kredyt(self, kwota):
-    #     if len(self.historia_przelewow) < 3:
-    #         return False
-    #     if self.historia_przelewow[-3] > 0 and self.historia_przelewow[-2] > 0 and self.historia_przelewow[-1] > 0:
-    #         self.saldo += kwota
-    #         return True
+    def zaciagnij_kredyt(self, kwota):
+        if len(self.historia_przelewow) < 3:
+            return False
+        if self.historia_przelewow[-3] > 0 and self.historia_przelewow[-2] > 0 and self.historia_przelewow[-1] > 0:
+            self.saldo += kwota
+            return True
 
 class KontoFirmowe:
     def __init__(self, nazwa, NIP):
