@@ -37,10 +37,10 @@ class Konto:
                     #print('z kodu rabatowego mogą korzystać tylko osoby urodzone po 1960 roku!')
 
 
-    def przelew_wychodzacy(self, odbiorca, pesel, kwota, ekspresowy: bool = False):
+    def przelew_wychodzacy(self, odbiorca, kwota, ekspresowy: bool = False):
 
-        if isinstance(odbiorca, Konto):
-            if self.saldo >= kwota and odbiorca.pesel == str(pesel):
+        if isinstance(odbiorca, Konto) or isinstance(odbiorca, KontoFirmowe):
+            if self.saldo >= kwota:
                 odbiorca.saldo += kwota
 
                 if ekspresowy == True:
@@ -56,6 +56,12 @@ class Konto:
 
         else:
             return
+    # def zaciagnij_kredyt(self, kwota):
+    #     if len(self.historia_przelewow) < 3:
+    #         return False
+    #     if self.historia_przelewow[-3] > 0 and self.historia_przelewow[-2] > 0 and self.historia_przelewow[-1] > 0:
+    #         self.saldo += kwota
+    #         return True
 
 class KontoFirmowe:
     def __init__(self, nazwa, NIP):
@@ -66,12 +72,11 @@ class KontoFirmowe:
         if len(NIP) == 10 and NIP.isdigit():
             self.NIP = NIP
         else:
-            self.NIP = "Niepoprawny NIP!"
+            self.NIP = "Niepoprawny NIP!
 
-    def przelew_firma(self, odbiorca, NIP, kwota, ekspresowy: bool = False):
-
-        if isinstance(odbiorca, KontoFirmowe):
-            if self.saldo >= kwota and odbiorca.NIP == NIP:
+    def przelew_firma(self, odbiorca, kwota, ekspresowy: bool = False):
+        if isinstance(odbiorca, KontoFirmowe) or isinstance(odbiorca, Konto):
+            if self.saldo >= kwota:
                 odbiorca.saldo += kwota
 
                 if ekspresowy == True:
@@ -84,6 +89,7 @@ class KontoFirmowe:
             else: return
         else:
             return
+
 
 
 
