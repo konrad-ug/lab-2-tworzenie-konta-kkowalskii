@@ -63,8 +63,6 @@ class Konto:
     #         self.saldo += kwota
     #         return True
 
-
-
 class KontoFirmowe:
     def __init__(self, nazwa, NIP):
         self.nazwa = nazwa
@@ -74,11 +72,9 @@ class KontoFirmowe:
         if len(NIP) == 10 and NIP.isdigit():
             self.NIP = NIP
         else:
-            self.NIP = "Niepoprawny NIP!"
-
+            self.NIP = "Niepoprawny NIP!
 
     def przelew_firma(self, odbiorca, kwota, ekspresowy: bool = False):
-
         if isinstance(odbiorca, KontoFirmowe) or isinstance(odbiorca, Konto):
             if self.saldo >= kwota:
                 odbiorca.saldo += kwota
