@@ -57,8 +57,6 @@ class Konto:
         else:
             return
 
-
-
 class KontoFirmowe:
     def __init__(self, nazwa, NIP):
         self.nazwa = nazwa
@@ -69,7 +67,6 @@ class KontoFirmowe:
             self.NIP = NIP
         else:
             self.NIP = "Niepoprawny NIP!"
-
 
     def przelew_firma(self, odbiorca, NIP, kwota, ekspresowy: bool = False):
 
