@@ -72,7 +72,7 @@ class KontoFirmowe:
         if len(NIP) == 10 and NIP.isdigit():
             self.NIP = NIP
         else:
-            self.NIP = "Niepoprawny NIP!
+            self.NIP = "Niepoprawny NIP!"
 
     def przelew_firma(self, odbiorca, kwota, ekspresowy: bool = False):
         if isinstance(odbiorca, KontoFirmowe) or isinstance(odbiorca, Konto):
